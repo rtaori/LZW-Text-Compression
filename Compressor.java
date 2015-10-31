@@ -2,9 +2,9 @@ import java.util.*;
  
 public class Compressor {
 	
-	public static int BASE_DICT = 256;
+public static int BASE_DICT = 256;
 
-	public static ArrayList<Integer> compress(String toCompress) {
+public static ArrayList<Integer> compress(String toCompress) {
         HashMap<String,Integer> dictionary = new HashMap<>();
         for (int x = 0; x < BASE_DICT; x++)
             dictionary.put("" + (char)x, x);
