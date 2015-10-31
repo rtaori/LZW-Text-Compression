@@ -5,26 +5,26 @@ public class Compressor {
 	public static int BASE_DICT = 256;
 
 	public static ArrayList<Integer> compress(String toCompress) {
-        HashMap<String,Integer> dictionary = new HashMap<>();
-        for (int x = 0; x < BASE_DICT; x++)
-            dictionary.put("" + (char)x, x);
+		HashMap<String,Integer> dictionary = new HashMap<>();
+		for (int x = 0; x < BASE_DICT; x++)
+			dictionary.put("" + (char)x, x);
  
-        String r = "";
-        ArrayList<Integer> result = new ArrayList<>();
-        for (char c : toCompress.toCharArray()) {
-		    String rc = r + c;
-		    if (dictionary.containsKey(rc))
-		        r = rc;
-		    else {
-		        result.add(dictionary.get(r));
-		        dictionary.put(rc, dictionary.size());
-		        r = "" + c;
-	        }
-        }
-        result.add(dictionary.get(r));
-        
-        return result;
-    }
+		String r = "";
+		ArrayList<Integer> result = new ArrayList<>();
+		for (char c : toCompress.toCharArray()) {
+			String rc = r + c;
+			if (dictionary.containsKey(rc))
+				r = rc;
+			else {
+				result.add(dictionary.get(r));
+				dictionary.put(rc, dictionary.size());
+				r = "" + c;
+			}
+		}
+		result.add(dictionary.get(r));
+
+		return result;
+	}
  
 	public static String decompress(ArrayList<Integer> compressed) {
 		HashMap<Integer,String> dictionary = new HashMap<>();
