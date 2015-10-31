@@ -10,16 +10,16 @@ public class Compressor {
             dictionary.put("" + (char)x, x);
  
         String r = "";
-ArrayList<Integer> result = new ArrayList<>();
-for (char c : toCompress.toCharArray()) {
-    String rc = r + c;
-    if (dictionary.containsKey(rc))
-        r = rc;
-    else {
-        result.add(dictionary.get(r));
-        dictionary.put(rc, dictionary.size());
-        r = "" + c;
-            }
+        ArrayList<Integer> result = new ArrayList<>();
+        for (char c : toCompress.toCharArray()) {
+		    String rc = r + c;
+		    if (dictionary.containsKey(rc))
+		        r = rc;
+		    else {
+		        result.add(dictionary.get(r));
+		        dictionary.put(rc, dictionary.size());
+		        r = "" + c;
+	        }
         }
         result.add(dictionary.get(r));
         
